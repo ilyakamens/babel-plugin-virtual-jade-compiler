@@ -27,11 +27,11 @@ const compileJadeFile = (jsFile, jadeFile) => {
   }
 
   if (!fileExists(path)) {
-    throw Error('Cannot find stylus file: ' + jadeFile);
+    throw Error('Cannot find jade file: ' + jadeFile);
   }
 
   const jadeContent = fs.readFileSync(path, 'utf8');
-  return virtualJade(jadeContent).include(dirname(path)).render().replace(/\n/g,' ');
+  return virtualJade(jadeContent);
 };
 
 const resolveModulePath = (filename) => {
